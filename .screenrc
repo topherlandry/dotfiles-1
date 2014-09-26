@@ -1,0 +1,30 @@
+autodetach			on	
+startup_message off
+nethack					on
+defscrollback   10000
+defutf8					on
+hardstatus			alwayslastline 
+#hardstatus			string "%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m/%d %{W}%c %{g}]"
+#hardstatus			alwayslastline "%{= kR}[%M %d :: %c]%{dd} %{= kc}%?%-Lw%?%{= kY}%n*%f %t%?(%u)%?%{= kc}%?%+Lw%?"
+
+
+#hardstatus string "%{+b wk} %-w%{+b wk} %n %t %{-}%+w %41=%H @ %l %-= %= %D,%c:%s "
+#hardstatus string "%{+b wk} %-w%{+b wk} %n %t %{-}%+w %41=%H @ %l %-= %= %D,%c:%s "
+hardstatus string "%{+b wk} %-w%{+b wk} %{r}[%{-}%n %t%{r}]%{-}%+w  %41=%H @ %l %-= %= %D, %M %d - %c:%s "
+
+
+sorendition			kG
+sorendition			02 40
+sorendition			10 99
+
+activity				'*knock* *knock* Wake up ... window %n'
+bell_msg				'*knock* *knock* Follow the white rabbit in window %n'
+
+
+bindkey					-k k8 next
+bindkey					-k k7 prev
+
+
+
+
+shell -${SHELL}
