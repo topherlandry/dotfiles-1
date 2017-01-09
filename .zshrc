@@ -23,7 +23,7 @@ ZSH_THEME="reed"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -45,13 +45,19 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ruby rails aws nyan)
+plugins=(git ruby rails aws nyan docker)
 
 source $ZSH/oh-my-zsh.sh
 
+
+
 # User configuration
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dave/.rvm/bin"
+setopt hist_ignore_all_dups
+HISTSIZE=100000
+SAVEHIST=100000
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/dreed/.rvm/bin:/home/dave/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -76,9 +82,36 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dave/.rvm/bin"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gcal="gcalcli --calendar dave.reed@vidyard.com agenda"
+alias paws="/usr/bin/python2 /vidyard/DevTools/DevOps/Scripts/AWS-API_Access.py"
+#alias ssh="ssh $(host -t A $1 | cut -f1 -d' ')"
+alias t="todo.sh"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# functions
+function multi {
+  cmd=$1
+  shift
+  while [[ $cmd = "ssh" ]]; do
+    pre_check="$(echo $@ | tr ' ' '\n' | sed -e 's/^.*@//g' | \
+      xargs nmap -p 22 -PN -oG - | grep Port | grep -v open)"
+    test "${pre_check}x" != "x" && (clear; echo "$pre_check") || break
+  done
+  tmux send-keys -t 0 "$cmd ${@[1]}"
+  for ((pane = 1; pane < ${#@[@]}; pane++)); do
+     tmux splitw -h
+     tmux send-keys -t $pane "$cmd ${@[pane+1]}"
+     tmux select-layout tiled > /dev/null
+  done
+  tmux set-window-option synchronize-panes on > /dev/null
+  tmux set-window-option pane-active-border-style fg=red > /dev/null
+  tmux set-window-option pane-border-style fg=yellow > /dev/null
+  tmux send-keys Enter
+}
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export TODOTXT_DEFAULT_ACTION=ls
+
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+source /usr/local/share/zsh/site-functions/_aws
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+source ~/.zshvars
+
