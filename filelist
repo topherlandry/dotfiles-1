@@ -1,0 +1,9 @@
+.conkyrc
+.screenrc
+.tmux.conf
+.vimrc
+.zshrc
+.config/bspwm
+.config/polybar
+.config/sxhkd
+.config/termite
