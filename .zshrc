@@ -86,6 +86,8 @@ alias gcal="gcalcli --calendar dave.reed@vidyard.com agenda"
 alias paws="/usr/bin/python2 /vidyard/DevTools/DevOps/Scripts/AWS-API_Access.py"
 #alias ssh="ssh $(host -t A $1 | cut -f1 -d' ')"
 alias t="todo.sh"
+alias vpn="sudo openconnect -u dreed vpn.vidyard.com -q -l"
+
 
 # functions
 function multi {
