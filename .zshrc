@@ -29,7 +29,7 @@ alias t="todo.sh"
 alias vpn="nmcli con up id Vidyard-VPN --ask"
 alias ltp="ruby ~/src/tmux-profile/load-tmux-profile.rb"
 alias lsd="ls -1t | head -5"
-
+alias signal-app="chromium --profile-directory=Default --app-id=bikioccmkafdpakkkcpdbppfkghcmihk"
 
 
 

@@ -3,6 +3,7 @@
 .tmux.conf
 .vimrc
 .zshrc
+bin
 .config/bspwm
 .config/polybar
 .config/sxhkd
