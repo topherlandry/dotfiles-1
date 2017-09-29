@@ -1,0 +1,58 @@
+[options]
+font = Iosevka 11
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+visible_bell = true
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+clickable_url = true
+scrollback_lines = 5000
+icon_name = terminal
+window_border = false
+
+
+
+
+# Solarized dark color scheme
+
+[colors]
+background = rgba(19, 12, 38, 0.8)
+
+
+
+foreground = #889898
+foreground_bold = #eee8d5
+#foreground_dim = #888888
+#background = #2f2a35
+cursor = #93a1a1
+
+
+# "block", "underline" or "ibeam"
+cursor_shape = underline
+
+# if unset, will reverse foreground and background
+#highlight = #839496
+
+# colors from color0 to color254 can be set
+color0 = #073642
+color1 = #483766
+color2 = #6a8b91
+color3 = #4c9681
+color4 = #268bd2
+color5 = #574e5f
+color6 = #2aa198
+color7 = #eee8d5
+color8 = #818e68
+color9 = #cb4b16
+color10 = #586e75
+color11 = #657b83
+color12 = #839496
+color13 = #6c71c4
+color14 = #93a1a1
+color15 = #fdf6e3
+
+
+

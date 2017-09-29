@@ -28,15 +28,25 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set number
+set relativenumber 
+set wrap lbr 
 
-" nerdtree is a useless turd
-nmap \e :NERDTreeToggle
 
 " cancel search buffer 
 nmap \q :nohlsearch
 
 " line numbers shortcut
 nmap \l :setlocal number!
+
+
+autocmd FileType markdown
+     \ setlocal spell wrap |
+
+ 
+noremap  <buffer> <silent> k gk
+noremap  <buffer> <silent> j gj
+noremap  <buffer> <silent> 0 g0
+noremap  <buffer> <silent> $ g$
 
 
 " timeout
@@ -49,6 +59,13 @@ inoremap kj <esc>
 
 " :W works too
 nnoremap :W<cr> :w<cr>
+
+
+" Split navs
+nnoremap <C-J> <C-W><C-J><C-W>_
+nnoremap <C-K> <C-W><C-K><C-W>_
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " we don't need no stinkin' arrow keys
 noremap <Up> <NOP>

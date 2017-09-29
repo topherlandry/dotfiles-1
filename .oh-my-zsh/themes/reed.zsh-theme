@@ -17,8 +17,7 @@ git_custom_status() {
   local cb=$(current_branch)
   if [ -n "$cb" ]; then
     echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
- fi
+  fi
 }
 
 PROMPT='$(git_custom_status)%{$fg[cyan]%}[%~%  %{$fg[green]%} %n@%M %{$fg[cyan]%}]%{$reset_color%}%B$%b '
-#PROMPT='$(git_custom_status)%{$fg[cyan]%}[%~ :: % %n@%M ]%{$reset_color%}%B$%b '

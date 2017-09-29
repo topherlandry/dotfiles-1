@@ -1,0 +1,27 @@
+#! /bin/sh
+
+
+bspc config border_width         2
+bspc config window_gap          16 
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+#bspc config focus_by_distance    true
+bspc config focus_follows_pointer true
+
+bspc config history_aware_focus  true
+
+bspc monitor DP-1 -d I II III IV V VI VII VIII IX X
+bspc monitor eDP-1 -d I II III IV V VI VII VIII IX X
+
+bspc rule -a feh state=floating
+
+sxhkd &
+
+xsetroot -cursor_name left_ptr&
+compton -bcC &
+redshift &
+nitrogen --restore &
+polybar top -c ~/.config/polybar/space &
+polybar bottom -c ~/.config/polybar/space &
