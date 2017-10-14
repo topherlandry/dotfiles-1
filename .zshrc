@@ -1,7 +1,11 @@
-compinit
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
+compinit
+
+
+
+
 
 # Exports
 export TODOTXT_DEFAULT_ACTION=ls
@@ -22,15 +26,18 @@ SAVEHIST=100000
 
 
 # aliases
-alias gcal="gcalcli --calendar daphne.reed@vidyard.com agenda"
-alias paws="/usr/bin/python2 /vidyard/DevTools/DevOps/Scripts/AWS-API_Access.py --username=dreed"
+alias gcal="gcalcli --calendar 'Daphne Reed'"
+
+alias paws="ruby /vidyard/DevTools/scripts/aws/auth.rb"
+#alias paws="/usr/bin/python2 /vidyard/DevTools/DevOps/Scripts/AWS-API_Access.py --username=dreed"
 #alias ssh="ssh $(host -t A $1 | cut -f1 -d' ')"
 alias t="todo.sh"
 alias vpn="nmcli con up id Vidyard-VPN --ask"
 alias ltp="ruby ~/src/tmux-profile/load-tmux-profile.rb"
 alias lsd="ls -1t | head -5"
 alias signal-app="chromium --profile-directory=Default --app-id=bikioccmkafdpakkkcpdbppfkghcmihk"
-
+alias lps="lpass show"
+alias lpc="grep password | sed 's/[^ ]* //' | xclip"
 
 
 
@@ -62,4 +69,8 @@ source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
 source ~/.zshvars
 source ~/bin/tmuxinator.zsh
+source ~/.cache/wal/colors.sh
 
+
+# Run pywal for every new terminal
+wal -r -t 

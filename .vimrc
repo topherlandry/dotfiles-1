@@ -5,6 +5,9 @@ filetype plugin indent on
 set background=dark
 "colorscheme solarized
 
+" Plug 'dylanaraps/wal.vim'
+colorscheme wal
+
 " swap files to a common spot
 set dir=~/.vim/_swap//
 
