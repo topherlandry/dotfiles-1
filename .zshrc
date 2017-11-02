@@ -1,12 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-compinit
-
-
-
-
-
 # Exports
 export TODOTXT_DEFAULT_ACTION=ls
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/home/daphne/bin:/home/daphne/.gem/ruby/2.4.0/bin:$PATH"
@@ -38,7 +32,7 @@ alias lsd="ls -1t | head -5"
 alias signal-app="chromium --profile-directory=Default --app-id=bikioccmkafdpakkkcpdbppfkghcmihk"
 alias lps="lpass show"
 alias lpc="grep password | sed 's/[^ ]* //' | xclip"
-
+alias color='for x in {0..8}; do for i in {30..37}; do for a in {40..47}; do echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;37;40m "; done; echo; done; done; echo ""'
 
 
 
@@ -64,13 +58,13 @@ function multi {
 }
 
 # external configs
-source /usr/local/share/zsh/site-functions/_aws
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+#source /usr/local/share/zsh/site-functions/_aws
 source $ZSH/oh-my-zsh.sh
 source ~/.zshvars
 source ~/bin/tmuxinator.zsh
 source ~/.cache/wal/colors.sh
-
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Run pywal for every new terminal
 wal -r -t 

@@ -148,7 +148,11 @@ bindsym XF86MonBrightnessDown exec ~/bin/brightness.sh -5 # decrease screen brig
 bindsym $mod+l exec ~/bin/lock.sh
 
 
+# Wallpaper switcher
+bindsym $mod+Shift+w exec wal -t -i ~/Pictures/Wallpapers
 
+# Monitor script exec
+bindsym $mod+Shift+m exec mon.sh 
 
 
 # reload the configuration file

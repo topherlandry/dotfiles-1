@@ -3,12 +3,21 @@ intern=eDP-1
 extern=HDMI-2
 
 
+function kill_poly()
+{
+  # Terminate already running bar instances
+  killall -q polybar
+
+  # Wait until the processes have been shut down
+  while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+}
+
 function laptop()
 {
-  killall polybar
+  kill_poly
   xrandr --output "$extern" --off --output "$intern" --auto
   MONITOR=eDP-1 polybar top -c ~/.config/polybar/polybar_xrdb &
-  feh --bg-fill ./Pictures/Wallpapers/snow.jpg
+  wal -t -i Pictures/Wallpapers
 }
 
 
@@ -19,8 +28,8 @@ function dual()
   xrandr --output "$extern" --left-of "$intern" --auto
   MONITOR=eDP-1 polybar top -c ~/.config/polybar/polybar_xrdb &
   MONITOR=HDMI-2 polybar top -c ~/.config/polybar/polybar_xrdb &
-  feh --bg-fill ./Pictures/Wallpapers/snow.jpg
-}
+  wal -t -i Pictures/Wallpapers
+  }
 
 function external()
 {
@@ -29,7 +38,7 @@ function external()
   xrandr --output "$extern" --primary --auto
   xrandr --output "$intern" --off
   MONITOR=HDMI-2 polybar top -c ~/.config/polybar/polybar_xrdb &
-  feh --bg-fill ./Pictures/Wallpapers/snow.jpg
+  wal -t -i Pictures/Wallpapers
 }
 
 

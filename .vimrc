@@ -15,6 +15,8 @@ set dir=~/.vim/_swap//
 set backup
 set backupdir=~/.vim/_backup/
 
+" undo
+set undodir=~/.vim/_undodir/
 
 " wildmenu
 set wildmenu
