@@ -21,7 +21,7 @@ window_border = false
 
 [colors]
 # OLD background = rgba(19, 12, 38, 0.8)
-background = rgba(12, 12, 12, 0.8)
+background = rgba(82, 82, 82, 0.7)
 
 
 

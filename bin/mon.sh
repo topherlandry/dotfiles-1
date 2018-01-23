@@ -1,4 +1,6 @@
 #!/bin/bash
+#exec 1> >(logger -s -t $(basename $0)) 2>&1
+
 intern=eDP-1
 extern=HDMI-2
 
@@ -6,7 +8,7 @@ extern=HDMI-2
 function kill_poly()
 {
   # Terminate already running bar instances
-  killall -q polybar
+  killall  polybar
 
   # Wait until the processes have been shut down
   while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
@@ -17,28 +19,28 @@ function laptop()
   kill_poly
   xrandr --output "$extern" --off --output "$intern" --auto
   MONITOR=eDP-1 polybar top -c ~/.config/polybar/polybar_xrdb &
-  wal -t -i Pictures/Wallpapers
+  #wal -t -i Pictures/Wallpapers
 }
 
 
 function dual()
 {
-  killall polybar
+  kill_poly
   xrandr --output "$intern" --primary --auto
-  xrandr --output "$extern" --left-of "$intern" --auto
+  xrandr --output "$extern" --right-of "$intern" --auto
   MONITOR=eDP-1 polybar top -c ~/.config/polybar/polybar_xrdb &
   MONITOR=HDMI-2 polybar top -c ~/.config/polybar/polybar_xrdb &
-  wal -t -i Pictures/Wallpapers
+  #wal -t -i Pictures/Wallpapers
   }
 
 function external()
 {
-  killall polybar
+  kill_poly
   echo "lid closed, external detected"
   xrandr --output "$extern" --primary --auto
   xrandr --output "$intern" --off
   MONITOR=HDMI-2 polybar top -c ~/.config/polybar/polybar_xrdb &
-  wal -t -i Pictures/Wallpapers
+  #wal -t -i Pictures/Wallpapers
 }
 
 

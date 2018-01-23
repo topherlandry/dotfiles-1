@@ -32,23 +32,24 @@ clickareas = 37
 
 linecolor = ${bar/bottom.background}
 
-spacing = 4
-;spacing = 2
+;spacing = 4
+spacing = 2
 lineheight = 16
-padding-right = 5
+padding-right = 2
 module-margin-left = 3
 module-margin-right = 3
 ;module-margin-left = 1
 ;module-margin-right = 1
 
-;font-0 = envypn:pixelsize=13;0
-font-0 = NotoSans-Regular:size=11;0
+font-0 = NotoSans-Mono:size=10;0
 font-1 = MaterialIcons:size=11;0
 font-2 = Termsynu:size=8;-1
 font-3 = FontAwesome:size=11;0
 
-modules-left = powermenu i3 poly_spot 
-modules-right = pkg volume backlight redshift battery date
+#modules-left = powermenu i3 poly_spot 
+modules-left = powermenu i3 
+#modules-right = pkg volume battery date
+modules-right = volume battery date
 
 
 tray-position = right
@@ -383,7 +384,7 @@ type = internal/memory
 format = <label> <bar-used>
 label = RAM
 
-bar-used-width = 30
+bar-used-width = 8
 bar-used-foreground-0 = #aaff77
 bar-used-foreground-1 = #aaff77
 bar-used-foreground-2 = #fba922
